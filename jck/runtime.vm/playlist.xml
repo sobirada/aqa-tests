@@ -76,7 +76,7 @@
 			</disable>
 		</disables>
 	</test>
-		<testCaseName>jck-runtime-vm-jvmti</testCaseName>
+	<testCaseName>jck-runtime-vm-jvmti</testCaseName>
 		<variations>
 			<variation>NoOptions</variation>
 		</variations>
