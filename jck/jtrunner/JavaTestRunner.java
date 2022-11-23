@@ -456,7 +456,7 @@ public class JavaTestRunner {
 		if (task == null || !task.equals("custom")) {  
 			fileContent += "set jck.excludeList.customFiles \"" + initialJtxFullPath + " " + jtxFullPath + " " + jtxDevFullPath + " " + customJtx + " " + kflFullPath + " " + testFlagJtxFullPath + "\";\n";
 		} else {
-			fileContent += "set jck.excludeList.customFiles \"" + initialJtxFullPath + " " + jtxFullPath + " " + jtxDevFullPath + " " + customJtx + " " + kflFullPath + "\";\n";
+			fileContent += "set jck.excludeList.customFiles \"" + initialJtxFullPath + " " + jtxFullPath + " " + customJtx + " " + kflFullPath + "\";\n";
 		}
 		
 		fileContent += "runTests" + ";\n";
@@ -989,9 +989,9 @@ public class JavaTestRunner {
 			int jckRC = -1;
 			boolean endedWithinTimeLimit = false;
 			
-			// Use the presence of a '/' to signify that we are running a subset of tests.
-			// If one of the highest level test nodes is being run it is likely to take a long time.
-			if ( tests.contains("/") && !isRiscv ) {
+			// Use the presence of more than one '/' to signify that we are running a smaller subset of tests.
+			// If one of the highest level subsets of tests is being run it is likely to take a long time.
+			if ( tests.chars().filter(c -> c == '/').count() > 1 && !isRiscv ) {
 				timeout = 4;
 			}
 
