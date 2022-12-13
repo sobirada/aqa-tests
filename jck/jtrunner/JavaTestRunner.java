@@ -592,7 +592,7 @@ public class JavaTestRunner {
 					// fileContent += "set jck.env.runtime.jdwp.jdwpOpts -agentlib\\:jdwp\\=server\\=y,transport\\=dt_socket,address\\=localhost\\:35000,suspend\\=n" + ";\n";
 					// }
 			
-			fileContent += "concurrency 1";\n; // + concurrencyString + ";\n";
+			fileContent += "concurrency 1" + ";\n"; // + concurrencyString + ";\n";
 			fileContent += "timeoutfactor 4" + ";\n";	// 4 base time limit equal 40 minutes
 			fileContent += keyword + ";\n";
 
