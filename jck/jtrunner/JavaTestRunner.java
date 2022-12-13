@@ -585,6 +585,13 @@ public class JavaTestRunner {
 				return false; 
 			}
 			
+			 if ( tests.contains("vm/jdwp")){
+					fileContent += "concurrencyString 1" + ";\n";	
+					
+				 	// fileContent += "set jck.env.runtime.jdwp.VMSuspended No" + ";\n";
+					// fileContent += "set jck.env.runtime.jdwp.jdwpOpts -agentlib\\:jdwp\\=server\\=y,transport\\=dt_socket,address\\=localhost\\:35000,suspend\\=n" + ";\n";
+					 }
+			
 			fileContent += "concurrency " + concurrencyString + ";\n";
 			fileContent += "timeoutfactor 4" + ";\n";	// 4 base time limit equal 40 minutes
 			fileContent += keyword + ";\n";
@@ -695,12 +702,7 @@ public class JavaTestRunner {
 					fileContent += "set jck.env.runtime.remoteAgent.passiveHost localhost" + ";\n";
 					fileContent += "set jck.env.runtime.remoteAgent.passivePortDefault Yes" + ";\n";
 					
-					 if ( tests.contains("vm/jdwp")){
-					fileContent += "concurrencyString 1" + ";\n";	
 					
-				 	// fileContent += "set jck.env.runtime.jdwp.VMSuspended No" + ";\n";
-					// fileContent += "set jck.env.runtime.jdwp.jdwpOpts -agentlib\\:jdwp\\=server\\=y,transport\\=dt_socket,address\\=localhost\\:35000,suspend\\=n" + ";\n";
-					 }
 				}
 			}
 			// Without the following override the following failures occur:
